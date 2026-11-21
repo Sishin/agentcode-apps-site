@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn Kannada for Kids · Trace, play and read all 49 letters</title>
+  <meta name="description" content="Learn Kannada helps children learn all 49 letters of the Kannada alphabet: guided tracing in the right stroke order, letter sounds, six learning games and read-aloud stories. Made for ages 0–8.">
+  <link rel="canonical" href="https://agentcode-apps.web.app/learn-kannada/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Learn Kannada for Kids">
+  <meta property="og:description" content="Trace, play and learn all 49 Kannada letters. Guided tracing, six learning games and read-aloud stories.">
+  <meta property="og:url" content="https://agentcode-apps.web.app/learn-kannada/">
+  <meta property="og:image" content="https://agentcode-apps.web.app/learn-kannada/img/feature.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0f1a" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Learn Kannada – Fun Learning",
+    "operatingSystem": "Android",
+    "applicationCategory": "EducationalApplication",
+    "description": "Trace, play and learn all 49 Kannada letters. Guided tracing, six learning games and read-aloud stories for kids.",
+    "image": "https://agentcode-apps.web.app/learn-kannada/img/icon.png",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "AgentCode Apps", "url": "https://agentcode-apps.web.app/" },
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.agentcode47.learnkannada"
+  }
+  </script>
+  <style>
+    .kn { font-family: var(--font-kn); }
+
+    /* Hero */
+    .lk-hero { position: relative; padding: 56px 0 72px; overflow: hidden; }
+    .lk-hero::before { content: ""; position: absolute; width: 620px; height: 620px; right: -160px; top: -120px; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--accent) 22%, transparent), transparent 68%); pointer-events: none; }
+    .lk-hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+    .crumbs { font-size: 14px; color: var(--ink-3); margin-bottom: 24px; }
+    .crumbs a { color: var(--ink-3); }
+    .app-id { display: flex; align-items: center; gap: 18px; }
+    .app-id img { width: 88px; height: 88px; border-radius: 22px; box-shadow: var(--shadow-md); }
+    .app-id .dev { color: var(--ink-3); font-weight: 600; font-size: 15px; }
+    .lk-hero h1 { font-size: clamp(38px, 5.6vw, 60px); letter-spacing: -0.035em; margin-top: 24px; }
+    .lk-hero h1 .kn { display: block; font-size: .5em; letter-spacing: 0; color: var(--accent); margin-top: 10px; font-weight: 700; }
+    .lk-hero .lede { font-size: clamp(18px, 2vw, 20px); color: var(--ink-2); margin-top: 18px; max-width: 540px; }
+    .lk-hero .badges { margin-top: 30px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; list-style: none; padding: 0; }
+    .meta li { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); font-size: 14px; font-weight: 600; color: var(--ink-2); }
+    .meta svg { width: 16px; height: 16px; stroke: var(--green); }
+    .review-note { margin-top: 14px; font-size: 14px; color: var(--ink-3); }
+
+    .phones { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: 0; min-height: 520px; }
+    .phone { width: 250px; border-radius: 30px; overflow: hidden; box-shadow: 0 30px 60px -20px rgba(22, 21, 43, .35), 0 0 0 1px var(--line); background: var(--surface); }
+    .phone img { width: 100%; height: auto; }
+    .phones .phone:first-child { transform: rotate(-6deg) translate(28px, 18px); z-index: 1; }
+    .phones .phone:last-child { transform: rotate(5deg) translate(-28px, -10px); z-index: 2; }
+    .float-letter { position: absolute; z-index: 3; width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center; color: #fff; font-family: var(--font-kn); font-weight: 700; font-size: 30px; box-shadow: 0 10px 0 rgba(0,0,0,.12), var(--shadow-md); }
+    .float-letter.a { background: #f0832f; left: 0; top: 0; transform: rotate(-10deg); }
+    .float-letter.b { background: #2f9bf0; right: 2%; bottom: 10%; transform: rotate(8deg); }
+    @media (max-width: 920px) {
+      .lk-hero { padding-top: 28px; }
+      .lk-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .phones { min-height: 0; }
+      .phone { width: 46%; max-width: 230px; border-radius: 24px; }
+      .float-letter { width: 50px; height: 50px; font-size: 24px; border-radius: 14px; }
+    }
+
+    /* Stat strip */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stat { padding: 24px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+    .stat b { display: block; font-size: 40px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+    .stat span { display: block; margin-top: 8px; color: var(--ink-2); font-weight: 600; font-size: 15px; }
+    .stat:nth-child(1) b { color: var(--accent); }
+    .stat:nth-child(2) b { color: var(--green); }
+    .stat:nth-child(3) b { color: var(--orange); }
+    .stat:nth-child(4) b { color: #2f8ee0; }
+    @media (max-width: 760px) { .stats { grid-template-columns: 1fr 1fr; gap: 12px; } .stat { padding: 18px; } .stat b { font-size: 34px; } }
+
+    /* Gallery */
+    .gallery-wrap { position: relative; }
+    .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: 260px; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 20px; margin: 0; list-style: none; scrollbar-width: thin; overscroll-behavior-x: contain; }
+    .gallery li { scroll-snap-align: start; }
+    .gallery img { width: 100%; height: auto; border-radius: 22px; border: 1px solid var(--line); background: var(--surface-2); }
+    .gallery-controls { display: flex; gap: 8px; }
+    .gallery-controls button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 20px; cursor: pointer; display: grid; place-items: center; }
+    .gallery-controls button:hover { border-color: var(--ink-3); }
+    .gallery-controls button:disabled { opacity: .35; cursor: default; }
+    .gallery-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+    .gallery-head .section-head { margin-bottom: 0; }
+    @media (max-width: 640px) { .gallery { grid-auto-columns: 72%; } .gallery-controls { display: none; } }
+
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .feature { padding: 32px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+    .feature .f-ico { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 20px; }
+    .feature .f-ico svg { width: 24px; height: 24px; }
+    .feature h3 { font-size: 22px; }
+    .feature p { color: var(--ink-2); margin-top: 10px; }
+    .feature ul { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .feature li { position: relative; padding-left: 26px; color: var(--ink-2); font-size: 15.5px; }
+    .feature li::before { content: ""; position: absolute; left: 0; top: 7px; width: 14px; height: 14px; border-radius: 50%; background: currentColor; opacity: .18; }
+    .feature li b { color: var(--ink); font-weight: 700; }
+    .f-purple .f-ico { background: var(--accent-soft); color: var(--accent); }
+    .f-orange .f-ico { background: var(--orange-soft); color: var(--orange); }
+    .f-green .f-ico { background: var(--green-soft); color: var(--green); }
+    .f-blue .f-ico { background: color-mix(in srgb, #2f8ee0 15%, var(--surface)); color: #2f8ee0; }
+    .feature.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    .feature.wide img { border-radius: 16px; box-shadow: var(--shadow-md); }
+    @media (max-width: 820px) { .features { grid-template-columns: 1fr; } .feature { padding: 24px; } .feature.wide { grid-template-columns: 1fr; } }
+
+    /* Alphabet strip */
+    .letters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .letters span { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-family: var(--font-kn); font-weight: 700; font-size: 20px; background: var(--surface-2); color: var(--ink); }
+
+    /* Parents / safety */
+    .safety { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; padding: 48px; border-radius: 28px; background: var(--surface-2); }
+    .safety h2 { font-size: clamp(28px, 3.6vw, 38px); margin-top: 10px; }
+    .safety > div > p { color: var(--ink-2); margin-top: 14px; }
+    .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .checks li { display: flex; gap: 14px; padding: 18px 20px; border-radius: 16px; background: var(--surface); }
+    .checks svg { width: 24px; height: 24px; flex: none; stroke: var(--green); margin-top: 1px; }
+    .checks b { display: block; }
+    .checks span { color: var(--ink-2); font-size: 15px; }
+    @media (max-width: 860px) { .safety { grid-template-columns: 1fr; padding: 28px 20px; gap: 28px; } }
+
+    /* CTA */
+    .cta { text-align: center; padding: 64px 24px; border-radius: 28px; background: var(--ink); color: var(--bg); }
+    .cta img { width: 80px; height: 80px; border-radius: 20px; margin: 0 auto 20px; }
+    .cta h2 { color: var(--bg); font-size: clamp(28px, 4vw, 42px); }
+    .cta p { color: color-mix(in srgb, var(--bg) 72%, transparent); margin: 12px auto 0; max-width: 520px; }
+    .cta .badges { justify-content: center; margin-top: 28px; }
+    .cta .store-badge:not(.is-soon) { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+    .cta .store-badge.is-soon { color: color-mix(in srgb, var(--bg) 75%, transparent); border-color: color-mix(in srgb, var(--bg) 30%, transparent); }
+    .cta .contact-line { margin-top: 28px; font-size: 15px; }
+    .cta .contact-line a { color: var(--bg); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main">
+      <a class="brand" href="/" aria-label="AgentCode Apps home"><span class="brand-mark" aria-hidden="true">AC</span>AgentCode Apps</a>
+      <ul class="nav-links">
+        <li class="hide-sm"><a href="/#apps">All apps</a></li>
+        <li class="hide-sm"><a href="#features">Features</a></li>
+        <li><a class="btn btn-primary btn-sm" href="#download" style="color:var(--bg)">Download</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="lk-hero">
+      <div class="container lk-hero-grid">
+        <div>
+          <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/#apps">Apps</a> / <span aria-current="page">Learn Kannada</span></nav>
+          <div class="app-id">
+            <img src="/learn-kannada/img/icon.png" alt="Learn Kannada app icon" width="88" height="88">
+            <div>
+              <span class="pill tag-new" style="background:var(--orange-soft);color:var(--orange);border-color:transparent">New</span>
+              <p class="dev" style="margin-top:6px">by AgentCode Apps · Education</p>
+            </div>
+          </div>
+          <h1>Learn Kannada for Kids <span class="kn" lang="kn">ಕನ್ನಡ ವರ್ಣಮಾಲೆ</span></h1>
+          <p class="lede">Trace, play and learn all 49 Kannada letters. Each letter has a picture word, its sound and guided tracing with stars, plus six games and read-aloud stories.</p>
+          <div class="badges">
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.agentcode47.learnkannada" rel="noopener" target="_blank" aria-label="Get Learn Kannada on Google Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg>
+              <span><small>GET IT ON</small><b>Google Play</b></span>
+            </a>
+            <span class="store-badge is-soon" role="note" aria-label="Coming soon to the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-apple"/></svg>
+              <span><small>Coming soon to the</small><b>App Store</b></span>
+            </span>
+          </div>
+          <ul class="meta" aria-label="App details">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Ages 0–8</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Free</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>No personal data collected</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Families policy</li>
+          </ul>
+        </div>
+        <div class="phones" aria-hidden="true">
+          <span class="float-letter a">ಅ</span>
+          <div class="phone"><img src="/learn-kannada/img/05_home.jpg" alt="" width="1080" height="1920"></div>
+          <div class="phone"><img src="/learn-kannada/img/01_trace.jpg" alt="" width="1080" height="1920"></div>
+          <span class="float-letter b">ಕ</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" style="padding-top:0" aria-label="At a glance">
+      <div class="container stats">
+        <div class="stat"><b>49</b><span>Kannada letters</span></div>
+        <div class="stat"><b>12</b><span>short lessons</span></div>
+        <div class="stat"><b>6</b><span>learning games</span></div>
+        <div class="stat"><b>5</b><span>read-aloud stories</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="screenshots" aria-labelledby="shots-title">
+      <div class="container">
+        <div class="gallery-head">
+          <div class="section-head">
+            <span class="eyebrow">Inside the app</span>
+            <h2 id="shots-title">A calm, colourful place to learn</h2>
+          </div>
+          <div class="gallery-controls">
+            <button type="button" data-dir="-1" aria-label="Previous screenshots">‹</button>
+            <button type="button" data-dir="1" aria-label="Next screenshots">›</button>
+          </div>
+        </div>
+        <div class="gallery-wrap">
+          <ul class="gallery" id="gallery" tabindex="0" aria-label="Screenshots, scroll sideways for more">
+            <li><img src="/learn-kannada/img/01_trace.jpg" width="1080" height="1920" loading="lazy" alt="Guided tracing of a Kannada letter with a rainbow road, start dot and arrows"></li>
+            <li><img src="/learn-kannada/img/02_letter.jpg" width="1080" height="1920" loading="lazy" alt="A letter card with its picture word and sound button"></li>
+            <li><img src="/learn-kannada/img/03_stars.jpg" width="1080" height="1920" loading="lazy" alt="Earning stars after tracing a letter"></li>
+            <li><img src="/learn-kannada/img/04_path.jpg" width="1080" height="1920" loading="lazy" alt="The learning path of lessons from easy to tricky letters"></li>
+            <li><img src="/learn-kannada/img/05_home.jpg" width="1080" height="1920" loading="lazy" alt="Home screen with day streak, stars and the next letter to learn"></li>
+            <li><img src="/learn-kannada/img/06_games.jpg" width="1080" height="1920" loading="lazy" alt="The six learning games"></li>
+            <li><img src="/learn-kannada/img/07_firstletter.jpg" width="1080" height="1920" loading="lazy" alt="The First Letter game: pick the letter a picture's word starts with"></li>
+            <li><img src="/learn-kannada/img/08_story.jpg" width="1080" height="1920" loading="lazy" alt="An illustrated story page in Kannada with an English line for parents"></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features" style="padding-top:24px" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Features</span>
+          <h2 id="features-title">Everything your child needs to learn the alphabet</h2>
+          <p>Learn Kannada is made for parents teaching Kannada at home, one small step at a time.</p>
+        </div>
+
+        <div class="features">
+          <article class="feature f-purple">
+            <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+            <h3>Trace letters the right way</h3>
+            <p>Every letter has a guided tracing road that follows the usual Kannada writing order: the body first, the talakattu (head mark) last.</p>
+            <ul>
+              <li><b>Guided mode:</b> road, start dot, arrows and a guide finger</li>
+              <li><b>Dots mode:</b> follow the dotted line on your own</li>
+              <li><b>Free mode:</b> write the letter alone, then tap Check</li>
+              <li><b>Drawing board</b> with crayon, marker, rainbow and glitter pens</li>
+            </ul>
+          </article>
+
+          <article class="feature f-green">
+            <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+            <h3>A learning path from easy to tricky</h3>
+            <p>Letters are grouped into 12 short lessons that start with round, simple shapes like <span class="kn" lang="kn">ಠ ರ ಬ ಲ</span> and build up to tricky ones.</p>
+            <ul>
+              <li>Up to three stars for each letter</li>
+              <li>A “needs a little practice” list brings back letters worth another try</li>
+              <li>All 13 vowels, <span class="kn" lang="kn">ಅಂ</span> and <span class="kn" lang="kn">ಅಃ</span>, and 34 consonants, each with sound, picture and example word</li>
+            </ul>
+          </article>
+
+          <article class="feature f-orange">
+            <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="12" rx="5"/><path d="M7 11v4M5 13h4"/><circle cx="16" cy="12" r="1"/><circle cx="18" cy="14" r="1"/></svg></div>
+            <h3>Six playful learning games</h3>
+            <ul>
+              <li><b>First Letter:</b> pick the letter a picture's word starts with</li>
+              <li><b>Sound Quiz:</b> listen and tap the letter you hear</li>
+              <li><b>Memory Match:</b> match each letter with its picture</li>
+              <li><b>Odd One Out:</b> spot the look-alike, like <span class="kn" lang="kn">ಪ</span> and <span class="kn" lang="kn">ಫ</span></li>
+              <li><b>Letter Train:</b> put letters in alphabet order</li>
+              <li><b>Balloon Pop:</b> pop the balloons with the right letter</li>
+            </ul>
+          </article>
+
+          <article class="feature f-blue">
+            <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></svg></div>
+            <h3>Stories to read and listen to</h3>
+            <p>Five short illustrated stories in simple Kannada, each page with an English line for parents. “Read to me” reads every page aloud.</p>
+            <ul>
+              <li>The Thirsty Crow <span class="kn" lang="kn">(ಬಾಯಾರಿದ ಕಾಗೆ)</span></li>
+              <li>The Ant and the Dove</li>
+              <li>The Hare and the Tortoise</li>
+              <li>The Lion and the Mouse</li>
+              <li>The Two Goats</li>
+            </ul>
+          </article>
+
+          <article class="feature f-purple wide">
+            <div>
+              <div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2c1 3 4 4.5 4 8a4 4 0 0 1-8 0c0-1.5.5-2.5 1.5-3.5C9.5 9 11 9 12 2z"/><path d="M8 16a4 4 0 0 0 8 0"/></svg></div>
+              <h3>A little practice every day</h3>
+              <p>A daily goal, a day streak and stars keep children motivated, and the home screen always shows the next letter to learn. Letter and word sounds use your device's Kannada voice.</p>
+              <div class="letters kn" lang="kn" aria-label="Some of the vowels">
+                <span>ಅ</span><span>ಆ</span><span>ಇ</span><span>ಈ</span><span>ಉ</span><span>ಊ</span><span>ಋ</span><span>ಎ</span><span>ಏ</span><span>ಐ</span><span>ಒ</span><span>ಓ</span><span>ಔ</span>
+              </div>
+            </div>
+            <img src="/learn-kannada/img/feature.jpg" alt="Learn Kannada: trace, play and learn all 49 letters, with tracing, games and stories" width="1024" height="500" loading="lazy">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" id="parents" aria-labelledby="parents-title">
+      <div class="container">
+        <div class="safety">
+          <div>
+            <span class="eyebrow">For parents</span>
+            <h2 id="parents-title">Made to be safe for young children</h2>
+            <p>Learn Kannada is designed for children aged 0–8 and follows the Google Play Families policy.</p>
+            <p style="margin-top:18px"><a class="btn btn-ghost" href="https://sishin.github.io/learn-kannada-privacy/" rel="noopener" target="_blank">Read the privacy policy</a></p>
+          </div>
+          <ul class="checks">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg><div><b>No personal data collected</b><span>We don't ask for names, emails or accounts.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><div><b>Child-directed, G-rated ads only</b><span>The app is free and supported by ads that meet the Families policy.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><div><b>Clear, calm design</b><span>Made for young children, with picture words and sounds for every letter.</span></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg><div><b>Great at home and in class</b><span>For families teaching Kannada at home and for early learning in school.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <div class="cta">
+          <img src="/learn-kannada/img/icon.png" alt="" width="80" height="80">
+          <h2 id="download-title">Start with the first letter today</h2>
+          <p>Free to download on Android. The iPhone and iPad version is coming soon to the App Store.</p>
+          <div class="badges">
+            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.agentcode47.learnkannada" rel="noopener" target="_blank" aria-label="Get Learn Kannada on Google Play">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"/></svg>
+              <span><small>GET IT ON</small><b>Google Play</b></span>
+            </a>
+            <span class="store-badge is-soon" role="note" aria-label="Coming soon to the App Store">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-apple"/></svg>
+              <span><small>Coming soon to the</small><b>App Store</b></span>
+            </span>
+          </div>
+          <p class="contact-line">Questions or feedback? <a href="mailto:developer.agent47@gmail.com">developer.agent47@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">AC</span>AgentCode Apps</a>
+          <p>Simple, safe and delightful apps for kids, families and everyday life.</p>
+        </div>
+        <div>
+          <h3>Learn Kannada</h3>
+          <ul>
+            <li><a href="https://play.google.com/store/apps/details?id=com.agentcode47.learnkannada" rel="noopener" target="_blank">Google Play</a></li>
+            <li><a href="https://sishin.github.io/learn-kannada-privacy/" rel="noopener" target="_blank">Privacy policy</a></li>
+            <li><a href="mailto:developer.agent47@gmail.com">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Stores</h3>
+          <ul>
+            <li><a href="https://apps.apple.com/us/developer/chill-guy/id1856081124" rel="noopener" target="_blank">App Store</a></li>
+            <li><a href="https://play.google.com/store/apps/developer?id=AgentCodeApps" rel="noopener" target="_blank">Google Play</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/#apps">All apps</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="mailto:developer.agent47@gmail.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 AgentCode Apps. All rights reserved.</span>
+        <span>Apple and the Apple logo are trademarks of Apple Inc. Google Play is a trademark of Google LLC.</span>
+      </div>
+    </div>
+  </footer>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.16.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.65zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.01.61-2.66 1.37-.58.67-1.09 1.75-.95 2.79 1.01.08 2.04-.51 2.67-1.27z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="#00a0ff" d="M3.61 1.81 13.42 12 3.61 22.19c-.25-.26-.4-.66-.4-1.16V2.97c0-.5.15-.9.4-1.16z"/><path fill="#00d36e" d="M16.81 8.6 13.42 12 3.61 1.81c.37-.39.98-.44 1.67-.05l11.53 6.84z"/><path fill="#ff3a44" d="M16.81 15.4 5.28 22.24c-.69.39-1.3.34-1.67-.05L13.42 12l3.39 3.4z"/><path fill="#ffd000" d="M20.6 10.8c1.1.62 1.1 1.78 0 2.4l-3.79 2.2L13.42 12l3.39-3.4 3.79 2.2z"/></symbol>
+  </svg>
+
+  <script>
+    (function () {
+      var header = document.querySelector('.site-header');
+      var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };
+      window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+      var g = document.getElementById('gallery');
+      var btns = document.querySelectorAll('.gallery-controls button');
+      function update() {
+        btns[0].disabled = g.scrollLeft <= 4;
+        btns[1].disabled = g.scrollLeft + g.clientWidth >= g.scrollWidth - 4;
+      }
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          g.scrollBy({ left: Number(b.dataset.dir) * (g.clientWidth * 0.8), behavior: 'smooth' });
+        });
+      });
+      g.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update); update();
+    })();
+  </script>
+</body>
+</html>
