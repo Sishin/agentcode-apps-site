@@ -12,8 +12,8 @@ Preview locally:
 
     cd public && python3 -m http.server 5178
 
-Deploy (publishes the live site):
+Hosting: GitHub Pages. Every push to `main` runs `.github/workflows/pages.yml`, which publishes the `public/` folder.
 
-    firebase deploy --only hosting
+Custom domain: set it in the repo under Settings > Pages > Custom domain, then add the DNS records GitHub shows there. (A CNAME file is not used with Actions-based deploys.)
 
-`.firebaserc` assumes the Firebase project ID is `agentcode-apps`. Check it with `firebase projects:list` before the first deploy.
+`firebase.json` and `.firebaserc` are kept in case you want to deploy to Firebase Hosting instead.
